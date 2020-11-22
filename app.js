@@ -1,17 +1,19 @@
 Vue.component("CoinDetail", {
-  props: ['coin'],
+  props: ["coin"],
 
   data() {
-    return { 
+    return {
       showPrices: false,
-      value: 0
+      value: 0,
     };
   },
 
   methods: {
-    toggleShowPrices(){
-      this.showPrices = !this.showPrices
-    }
+    toggleShowPrices() {
+      this.showPrices = !this.showPrices;
+
+      this.$emit("change-color", this.showPrices ? 'FF96C8' : '3D3D3D');
+    },
   },
 
   computed: {
@@ -68,7 +70,6 @@ new Vue({
   data() {
     return {
       btc: {
-        
         name: "Bitcoin",
         symbol: "BTC",
         img: "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
@@ -86,15 +87,12 @@ new Vue({
       },
 
       color: "f4f4f4",
-
     };
   },
 
-/*   methods: {
-    toggleShowPrices() {
-      this.showPrices = !this.showPrices;
-
-      this.color = this.color.split("").reverse().join("");
+  methods: {
+    updateColor(color) {
+      this.color = color || this.color.split("").reverse().join("");
     },
-  }, */
+  },
 });
