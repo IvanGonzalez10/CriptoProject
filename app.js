@@ -49,7 +49,8 @@ Vue.component("CoinDetail", {
   <input type="number" v-model="value" />
   <span>{{ convertedValue }}</span>
 
-  
+  <slot></slot>
+
   <ul v-show="showPrices">
     <li
       class="uppercase"
@@ -88,6 +89,14 @@ new Vue({
 
       color: "f4f4f4",
     };
+  },
+
+  created(){
+    
+  },
+
+  mounted(){
+
   },
 
   methods: {
