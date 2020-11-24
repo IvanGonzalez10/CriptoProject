@@ -34,13 +34,13 @@
           {{ a.name }}
         </td>
         <td>
-          {{ a.priceUsd }}
+          {{ a.priceUsd | dollar}}
         </td>
         <td>
-          {{ a.marketCapUsd }}
+          {{ a.marketCapUsd | dollar}}
         </td>
-        <td>
-          {{ a.changePercent24Hr }}
+        <td v-bind:class="a.changePercent24Hr.includes('-') ? 'text-red-600' : 'text-green-600' " >
+          {{ a.changePercent24Hr | percent }}
         </td>
         <td class="hidden sm:block"></td>
       </tr>
